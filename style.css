@@ -1,0 +1,110 @@
+:root {
+    --body-bg-color: rgb(60 30 38);
+    --body-color: var(--white-opacity-90);
+    --black-opacity-75: rgba(0, 0, 0, 0.75);
+    --white-opacity-75: rgba(255, 255, 255, 0.75);
+    --white-opacity-90: rgba(255, 255, 255, 0.90);
+    --white-opacity-1: rgba(255, 255, 255, 1);
+    --border-1px-solid-white: 1px solid var(--white-opacity-1);
+    --display-grid: grid;
+    --position-center: center;
+    --position-flex-end: flex-end;
+    --display-flex: flex;
+    --flex-direction-column: column;
+    --justify-content-space-around: space-around;
+    --font-0-dot-5-rem: 0.5rem;
+    --font-1-dot-5-rem: 1.5rem;
+    --font-2-rem: 2rem;
+    --font-2-dot-5-rem: 2.5rem;
+    --px-10-in-rem: 0.625rem;
+    --px-100-in-rem: 6.25rem;
+    --px-120-in-rem: 7.5rem;
+    --value-span-2: span 2;
+    --value-break-word: break-word;
+    --value-break-all: break-all;
+    --value-0: 0;
+    --value-none: none;
+    --value-pointer: pointer;
+    --viewport-height-100: 100vh;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(../fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+html,
+body {
+    min-height: var(--viewport-height-100);
+}
+
+body {
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    margin: var(--value-0);
+    padding: var(--value-0);
+    text-align: var(--position-center);
+    text-rendering: optimizeLegibility;
+}
+
+footer {
+    margin-top: auto;
+    padding: var(--font-0-dot-5-rem) var(--value-0);
+}
+
+.calculator__grid-container {
+    display: var(--display-grid);
+    grid-template-columns: repeat(4, var(--px-100-in-rem));
+    grid-template-rows: minmax(var(--px-120-in-rem), auto) repeat(5, var(--px-100-in-rem));
+    justify-content: var(--position-center);
+    align-content: var(--position-center);
+    min-height: var(--viewport-height-100);
+}
+
+.calculator--display {
+    background-color: var(--black-opacity-75);
+    display: var(--display-flex);
+    flex-direction: var(--flex-direction-column);
+    align-items: var(--position-flex-end);
+    justify-content: var(--justify-content-space-around);
+    grid-column: 1 / -1;
+    padding: var(--px-10-in-rem);
+    word-wrap: var(--value-break-word);
+    word-break: var(--value-break-all);
+}
+
+.calculator--display .calculator__previous-value--display {
+    color: var(--white-opacity-75);
+    font-size: var(--font-1-dot-5-rem);
+}
+
+.calculator--display .calculator__current-value--display {
+    color: var(--white-opacity-1);
+    font-size: var(--font-2-dot-5-rem);
+}
+
+.calculator__grid-container > button {
+    background-color: var(--white-opacity-75);
+    border: var(--border-1px-solid-white);
+    cursor: var(--value-pointer);
+    font-size: var(--font-2-rem);
+    outline: var(--value-none);
+}
+
+.calculator__grid-container > button:focus,
+.calculator__grid-container > button:hover {
+    background-color: var(--white-opacity-90);
+}
+
+.calculator__button--span-two {
+    grid-column: var(--value-span-2);   
+}
