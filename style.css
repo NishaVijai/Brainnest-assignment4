@@ -97,7 +97,7 @@ footer {
     border: var(--border-1px-solid-white);
     cursor: var(--value-pointer);
     font-size: var(--font-2-rem);
-    outline: var(--value-none);
+    /* outline: var(--value-none); */
 }
 
 .calculator__grid-container > button:focus,

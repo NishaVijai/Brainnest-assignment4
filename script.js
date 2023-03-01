@@ -28,7 +28,7 @@ const divide = function(x, y) {
 }
 
 let operate = function(num1, num2, mathematicalOperator) {
-    let computation;
+    let computation = "";
     const prev = parseFloat(num1);
     const current = parseFloat(num2);
 
@@ -88,10 +88,13 @@ let getDisplayValue = function(number) {
 
 let selectedOperator = function(operator) {
     if(currentValue === '') {
+        currentOperator = operator;
         return
-    }    
+    }
     
-    operate(previousValue, currentValue, currentOperator);
+    if(previousValue !== '') {
+        operate(previousValue, currentValue, currentOperator);
+    }
 
     currentOperator = operator;
     previousValue = currentValue;
@@ -99,6 +102,9 @@ let selectedOperator = function(operator) {
 }
 
 let appendNewValue = function(number) {  
+    if (number === '.' && currentValue.includes('.')) {
+        return;
+    }
     currentValue = currentValue.toString() + number.toString();    
 }
 
